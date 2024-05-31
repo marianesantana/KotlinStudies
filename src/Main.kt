@@ -4,24 +4,30 @@ fun main() {
 }
 
 fun romanToInt(s: String): Int {
-    val helperString = mutableMapOf<Char,Int>()
-    helper(helperString)
+    val helper = mapOf(
+        'M' to 1000,
+        'D' to 500,
+        'C' to 100,
+        'L' to 50,
+        'X' to 10,
+        'V' to 5,
+        'I' to 1
+    )
     var sumValue = 0
 
     for(i in s.indices){
-        print(i + 1)
+        println(s.length)
 
-        //se 1 < 7 && L[1000] < L[500+100]
-        if(i + 1 < s.length && helperString[s[i]]!! < helperString[s[i+1]]!!){
-            sumValue -= helperString[s[i]]!!
+        if(i + 1 < s.length && helper[s[i]]!! < helper[s[i+1]]!!){
+            sumValue -= helper[s[i]]!!
         }
         else {
-            print(s[i])
+            println(s[i])
             // 0 = L[50]
             //50 += 5
             // 55 += 1 * 3
 
-            sumValue += helperString[s[i]]!!
+            sumValue += helper[s[i]]!!
 
 
         }
@@ -30,13 +36,5 @@ fun romanToInt(s: String): Int {
     return sumValue
 }
 
-fun helper(helper: MutableMap<Char, Int>){
-    helper['M'] = 1000
-    helper['D'] = 500
-    helper['C'] = 100
-    helper['L'] = 50
-    helper['X'] = 10
-    helper['V'] = 5
-    helper['I'] = 1
-}
+
 
