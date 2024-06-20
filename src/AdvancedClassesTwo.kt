@@ -1,5 +1,5 @@
 fun main() {
-    val toad = Vertebrate.Amphibian(lifeSpan = 10)
+    val toad = Amp(lifeSpan = 10)
     val trout = Vertebrate.Fish(lifeSpan = 5, freshWater = true)
 
     println(toad cross trout)
@@ -40,3 +40,5 @@ sealed class Vertebrate(private val isColdBlooded: Boolean, private  val lifeSpa
         )
     }
 }
+
+typealias Amp = Vertebrate.Amphibian
